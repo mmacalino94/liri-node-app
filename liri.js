@@ -1,4 +1,5 @@
-var keys = require('./keys');
+require('dotenv').config();
+var keys = require('./keys.js');
 var request = require('request');
 var twitter = require('twitter');
 var spotify = require('node-spotify-api');
@@ -67,10 +68,10 @@ function showTweets(){
 }
 
 function spotifySong(song){
-    var itemsFound = data.tracks.items.length;
+    // var itemsFound = data.tracks.items.length;
   spotify.search({ type: 'track', query: song}, function(error, data){
     if(!error){
-      for(var i = 0; i < itemsFound; i++){
+      for(var i = 0; i < data.tracks.items.length; i++){
         var songData = data.tracks.items[i];
         console.log("Artist: " + songData.artists[0].name);
         console.log("Song: " + songData.name);
