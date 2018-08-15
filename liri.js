@@ -57,7 +57,6 @@ function showTweets(){
         console.log("@Mishelley_94: " + tweets[i].text + " Created At: " + date.substring(0, 19));
         console.log("-----------------------");
         
-        //adds text to log.txt file
         fs.appendFile('log.txt', "@Mishelley_94: " + tweets[i].text + " Created At: " + date.substring(0, 19));
         fs.appendFile('log.txt', "-----------------------");
       }
